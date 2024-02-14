@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - name: npm install and build webpack
         run: |
           npm install
@@ -31,13 +31,13 @@ jobs:
         os: [ubuntu-latest, windows-2022]
         node-version: [20.x, 22.x]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: actions/download-artifact@main
       with: 
         name: webpack artifacts
         path: public
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
     - name: npm install, and test
